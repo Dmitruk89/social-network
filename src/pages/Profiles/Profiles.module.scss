@@ -1,0 +1,25 @@
+.profiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.profileCard {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 0 auto;
+
+    button {
+        position: absolute;
+        padding: 10px 15px;
+        bottom: 10px;
+        left: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

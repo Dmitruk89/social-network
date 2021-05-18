@@ -1,0 +1,12 @@
+@import '../../../styles/constants.scss';
+
+.post {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color: $cardColor;
+    border: $cardBorder;
+}

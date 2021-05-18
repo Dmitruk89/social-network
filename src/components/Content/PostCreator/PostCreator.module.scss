@@ -1,0 +1,13 @@
+@import '../../../styles/constants.scss';
+
+.postCreator {
+    color: $mainColor;
+    background-color: $cardColor;
+    border: $cardBorder;
+    border-top: solid 4px $mainColor;
+    padding: 10px 15px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+  
+}

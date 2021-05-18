@@ -1,0 +1,12 @@
+@import '../../../styles/constants.scss';
+
+.profileSmall {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    padding: 10px 15px;
+    background-color: $cardColor;
+    border: $cardBorder;
+}

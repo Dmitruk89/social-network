@@ -1,0 +1,12 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+
+    div {
+        background-color: white;
+        border: 1px solid black;
+        text-align: center;
+        height: 500px;
+    }
+}
+

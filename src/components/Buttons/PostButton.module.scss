@@ -1,0 +1,23 @@
+@import '../../styles/constants.scss';
+
+.postButton {
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+.active {
+    color: $cardColor;
+    background-color: $mainColor;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.inactive {
+    color: $darkGrayColor;
+    background-color: $lightGrayColor;
+}

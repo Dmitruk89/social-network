@@ -1,33 +1,11 @@
+@import './styles/constants.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  background-color: rgba(219, 217, 206, 0.63);
-}
-
-.header {
-  height: 50px;
-  color: white;
-  background-color: brown;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.content {
-  width: 90%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-column-gap: 20px;
-}
-
-.main_sidebar__left {
-  background-color: cornflowerblue;
-}
-
-.main_content {
-  text-align: center;
-  background-color: white;
-}
-
-.main_sidebar__right{
-  background-color: cornflowerblue;
+  background-color: $lightGrayColor;
 }

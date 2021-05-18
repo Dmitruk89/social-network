@@ -1,0 +1,12 @@
+@import '../../../styles/constants.scss';
+
+.suggestions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color: $cardColor;
+    border: $cardBorder;
+}

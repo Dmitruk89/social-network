@@ -1,0 +1,25 @@
+@import '../../../styles/constants.scss';
+
+.navigation {
+
+    ul {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        li {
+            list-style: none;
+            margin-left: 10px;
+    
+            a {
+                color: $cardColor;
+            }
+        }
+    }
+    
+ 
+}
+
+.active {
+    border-bottom: 1px solid $cardColor;
+}

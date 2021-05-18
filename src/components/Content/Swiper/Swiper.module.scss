@@ -1,0 +1,15 @@
+@import '../../../styles/constants.scss';
+
+.swiper {
+    color: $mainColor;
+    background-color: $lightGrayColor;
+    border: $cardBorder;
+    margin-top: 15px;
+}
+
+.swiperContainer {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+}
