@@ -1,4 +1,5 @@
 import styles from './Profiles.module.scss';
+import {NavLink} from 'react-router-dom';
 
 const Profiles = (props) => {
     
@@ -20,7 +21,9 @@ const Profiles = (props) => {
                     {props.users.map(user => {
                             return <div key={user.id} className={styles.profileCard}>
                                 <div className={styles.profileImage}>
-                                    <img alt={'user'} src={!user.photos.small ? 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png' : user.photos.small} />
+                                    <NavLink to={`/profile/${user.id}`}>
+                                        <img alt={'user'} src={!user.photos.small ? 'https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png' : user.photos.small} />
+                                    </NavLink >
                                 </div>
                                 <h3>{user.name}</h3>
                                 <p>{user.status}</p>

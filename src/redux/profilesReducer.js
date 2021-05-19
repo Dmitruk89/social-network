@@ -5,7 +5,7 @@ const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 const initialState = {
-    users: [ ],
+    users: [],
     perPage: 9,
     totalUsers: 20,
     currentPage: 1,

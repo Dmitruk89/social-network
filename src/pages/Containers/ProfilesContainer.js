@@ -8,7 +8,6 @@ import React from 'react';
 class ProfilesContainer extends React.Component {
    
     componentDidMount(){
-        if (this.props.users.length === 0){
             this.props.toggleIsFetching();
             axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.perPage}`)
             .then(response => {
@@ -16,7 +15,6 @@ class ProfilesContainer extends React.Component {
                 this.props.setTotalUsers(response.data.totalCount);
                 this.props.toggleIsFetching();
             });
-        }
     }
 
     onPageChange = (page) => {
@@ -57,25 +55,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (page) => {
-//             dispatch(setCurrentPageAC(page))
-//         },
-//         setTotalUsers: (totalUsers) => {
-//             dispatch(setTotalUsersAC(totalUsers))
-//         },
-//         toggleIsFetching: () => {
-//             dispatch(toggleIsFetchingAC())
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps, 
     {
