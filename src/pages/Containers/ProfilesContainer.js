@@ -1,7 +1,7 @@
 import Profiles from '../Profiles/Profiles';
 import Preloader from '../../components/Common/Preloader';
 import {connect} from 'react-redux';
-import { followAC, setUsersAC, setCurrentPageAC, setTotalUsersAC, toggleIsFetchingAC } from '../../redux/profilesReducer';
+import { follow, setUsers, setCurrentPage, setTotalUsers, toggleIsFetching } from '../../redux/profilesReducer';
 import * as axios from 'axios';
 import React from 'react';
 
@@ -57,24 +57,32 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (page) => {
-            dispatch(setCurrentPageAC(page))
-        },
-        setTotalUsers: (totalUsers) => {
-            dispatch(setTotalUsersAC(totalUsers))
-        },
-        toggleIsFetching: () => {
-            dispatch(toggleIsFetchingAC())
-        }
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//             dispatch(followAC(userId))
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users))
+//         },
+//         setCurrentPage: (page) => {
+//             dispatch(setCurrentPageAC(page))
+//         },
+//         setTotalUsers: (totalUsers) => {
+//             dispatch(setTotalUsersAC(totalUsers))
+//         },
+//         toggleIsFetching: () => {
+//             dispatch(toggleIsFetchingAC())
+//         }
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilesContainer);
+export default connect(mapStateToProps, 
+    {
+        follow,
+        setUsers,
+        setCurrentPage,
+        setTotalUsers,
+        toggleIsFetching,
+    }
+    )(ProfilesContainer);
