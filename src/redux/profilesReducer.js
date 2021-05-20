@@ -3,6 +3,7 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING = 'TOGGLE_IS_FOLLOWING';
 
 const initialState = {
     users: [],
@@ -10,6 +11,7 @@ const initialState = {
     totalUsers: 20,
     currentPage: 1,
     isFetching: false,
+    isFollowing: [],
 }
 
 const profilesReducer = (state = initialState, action) => {
@@ -19,6 +21,13 @@ const profilesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.users
+            }
+        case TOGGLE_IS_FOLLOWING:
+            return {
+                ...state,
+                isFollowing: action.isFetching ?
+                [...state.isFollowing, action.userId] :
+                state.isFollowing.filter(id => id !== action.userId)
             }
         case TOGGLE_IS_FETCHING:
             return {
@@ -56,5 +65,6 @@ export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
 export const setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
 export const toggleIsFetching = () => ({type: TOGGLE_IS_FETCHING});
+export const toggleIsFollowing = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING, isFetching, userId})
 
 export default profilesReducer;

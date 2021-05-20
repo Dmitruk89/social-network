@@ -28,7 +28,8 @@ const Profiles = (props) => {
                                 </div>
                                 <h3>{user.name}</h3>
                                 <p>{user.status}</p>
-                                <button onClick={() => {
+                                <button disabled={props.isFollowing.some(userId => userId === user.id)}onClick={() => {
+                                    props.toggleIsFollowing(true, user.id);
                                     if (!user.followed){
                                         axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${user.id}`, {}, {
                                             withCredentials: true,
@@ -38,7 +39,8 @@ const Profiles = (props) => {
                                         })
                                         .then(response => {
                                             if (response.data.resultCode === 0){
-                                                props.follow(user.id)
+                                                props.follow(user.id);
+                                                props.toggleIsFollowing(false, user.id);
                                             }
                                         });
                                     } else {
@@ -50,7 +52,8 @@ const Profiles = (props) => {
                                         })
                                         .then(response => {
                                             if (response.data.resultCode === 0){
-                                                props.follow(user.id)
+                                                props.follow(user.id);
+                                                props.toggleIsFollowing(false, user.id);
                                             }
                                         });
                                     }
