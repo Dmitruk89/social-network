@@ -1,5 +1,6 @@
 import styles from './Profiles.module.scss';
 import {NavLink} from 'react-router-dom';
+import * as axios from 'axios';
 
 const Profiles = (props) => {
     
@@ -27,7 +28,33 @@ const Profiles = (props) => {
                                 </div>
                                 <h3>{user.name}</h3>
                                 <p>{user.status}</p>
-                                <button onClick={() => props.follow(user.id)}>{user.followed ? 'Unfollow' : 'Follow'}</button>
+                                <button onClick={() => {
+                                    if (!user.followed){
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${user.id}`, {}, {
+                                            withCredentials: true,
+                                            headers: {
+                                                'API-KEY': '1ba8bae5-447f-47e5-8830-742997f73cf8'
+                                            } 
+                                        })
+                                        .then(response => {
+                                            if (response.data.resultCode === 0){
+                                                props.follow(user.id)
+                                            }
+                                        });
+                                    } else {
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0//follow/${user.id}`, {
+                                            withCredentials: true,
+                                            headers: {
+                                                'API-KEY': '1ba8bae5-447f-47e5-8830-742997f73cf8'
+                                            } 
+                                        })
+                                        .then(response => {
+                                            if (response.data.resultCode === 0){
+                                                props.follow(user.id)
+                                            }
+                                        });
+                                    }
+                                }}>{user.followed ? 'Unfollow' : 'Follow'}</button>
                             </div>
                         })}
                 </div>

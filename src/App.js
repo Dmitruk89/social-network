@@ -1,15 +1,15 @@
 
 import './App.scss';
 import 'antd/dist/antd.css';
-import Header from './components/Header/Header';
 import Page from './pages/Page';
 import {BrowserRouter as Router} from 'react-router-dom';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <HeaderContainer />
         <Page />
       </div>
     </Router>

@@ -9,7 +9,9 @@ class ProfilesContainer extends React.Component {
    
     componentDidMount(){
             this.props.toggleIsFetching();
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.perPage}`)
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.perPage}`, {
+                withCredentials: true
+            })
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsers(response.data.totalCount);
@@ -20,7 +22,9 @@ class ProfilesContainer extends React.Component {
     onPageChange = (page) => {
         this.props.toggleIsFetching();
         this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.perPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.perPage}`, {
+            withCredentials: true
+        })
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.toggleIsFetching();
